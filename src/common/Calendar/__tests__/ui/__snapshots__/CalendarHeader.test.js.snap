@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarHeader should render title 1`] = `"<div class=\\"c-calendar__header\\"><div role=\\"button\\" class=\\"c-calendar-arrow c-calendar-arrow__prev\\">◀</div><h1 class=\\"c-calendar-title\\">2019년 3월</h1><div role=\\"button\\" class=\\"c-calendar-arrow c-calendar-arrow__next\\">▶</div></div>"`;
