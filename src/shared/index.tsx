@@ -1,4 +1,5 @@
 import ErrorMessage from './ErrorMessage';
-import LoadingPage from './LoadingPage';
+import Loading from './Loading';
 import withErrorBoundary from './WithErrorBoundary';
-export { ErrorMessage, LoadingPage, withErrorBoundary };
+
+export { ErrorMessage, Loading, withErrorBoundary };
