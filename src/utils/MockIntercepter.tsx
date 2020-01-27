@@ -39,27 +39,25 @@ const getMockResponse = (mockError: any) => {
   );
 };
 
-// Add a request interceptor
-axios.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
-    if (mockingEnabled && isUrlMocked(config.url)) {
-      console.log('axios mocking ' + config.url);
-      return getMockError(config);
-    }
-    return config;
-  },
-  (error) => Promise.reject(error),
-);
+export const mockRequest = () =>
+  axios.interceptors.request.use(
+    (config: AxiosRequestConfig) => {
+      if (mockingEnabled && isUrlMocked(config.url)) {
+        console.log('axios mocking ' + config.url);
+        return getMockError(config);
+      }
+      return config;
+    },
+    (error) => Promise.reject(error),
+  );
 
-// Add a response interceptor
-axios.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (isMockError(error)) {
-      return getMockResponse(error);
-    }
-    return Promise.reject(error);
-  },
-);
-
-export default { getMockResponse, getMockError };
+export const mockResponse = () =>
+  axios.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (isMockError(error)) {
+        return getMockResponse(error);
+      }
+      return Promise.reject(error);
+    },
+  );
